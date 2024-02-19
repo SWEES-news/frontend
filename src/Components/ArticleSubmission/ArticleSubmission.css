@@ -1,0 +1,50 @@
+.article-submission-container {
+    margin: 0 auto;
+    max-width: 600px; /* Adjust width as necessary */
+    text-align: center;
+    padding: 40px; /* Increase padding for better spacing */
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.article-submission-form {
+    display: flex;
+    flex-direction: column;
+    gap: 100px; /* Increase gap for better spacing between form elements */
+}
+
+.article-submission-input {
+    width: calc(100% - 20px); /* Subtracting the total horizontal padding from the width */
+    padding: 10px;
+    margin-bottom: 10px; /* Ensure there is space below the input */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.article-submission-button {
+    padding: 15px 20px; /* Increase padding for a bigger button */
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 16px; /* Increase font size for better readability */
+}
+
+.article-submission-button:hover {
+    background-color: #0056b3;
+}
+
+.article-submission-response {
+    margin-top: 30px; /* Increase margin for better spacing after submission */
+}
+
+.error-message {
+    color: red;
+    margin-top: 20px; /* Add space above the error message */
+}
