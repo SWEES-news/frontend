@@ -5,6 +5,7 @@ const PAGES = [
   { label: 'Home', destination: '/' },
   { label: 'Games', destination: '/games' },
   { label: 'Users', destination: '/users' },
+  { label: 'Submit Article', destination: '/submitarticle' },
 ]
 
 const mapper = (page) => <li><Link to={page.destination}>{page.label}</Link></li>;

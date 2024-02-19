@@ -9,6 +9,8 @@ import './App.css';
 import Navbar from './Components/Navbar';
 import Games from './Components/Games';
 import Users from './Components/Users'; 
+import ArticleSubmissionComponent from './Components/ArticleSubmission'; 
+
 
 function App() {
   return (
@@ -18,6 +20,7 @@ function App() {
         <Route path='' element={<h1>Home</h1>} />
         <Route path="games" element={<Games />} />
         <Route path="users" element={<Users />} /> 
+        <Route path="/submitarticle" element={<ArticleSubmissionComponent />} />
       </Routes>
     </BrowserRouter>
   );
