@@ -4,7 +4,7 @@ function UsersComponent() {
     const [users, setUsers] = useState({});
 
     useEffect(() => {
-        fetch('/users')
+        fetch('/user')
             .then(response => response.json())
             .then(data => setUsers(data.Data)) // Extracting Data from the response
             .catch(error => console.error('Error fetching data:', error));

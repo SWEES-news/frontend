@@ -10,7 +10,7 @@ function ArticleSubmissionComponent() {
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        fetch('/submit-article', {
+        fetch('/articles/submit', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -20,7 +20,12 @@ function ArticleSubmissionComponent() {
                 submitter_id: submitterId,
             }),
         })
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok.');
+            }
+            return response.json();
+        })
         .then(data => {
             setSubmissionResponse(data);
             setError(null);
@@ -67,7 +72,14 @@ function ArticleSubmissionComponent() {
                     <p>Submission ID: {submissionResponse.submission_id}</p>
                 </div>
             )}
-            {error && <p className="error-message">Error submitting article. Please try again.</p>}
+            {error && (
+                <div className="error-message">
+                    <p>Error submitting article: {error.message}</p>
+                    <p>Please check your submission and try again.</p>
+                    {error.type === 'validation' && <p>Ensure all required fields are filled correctly.</p>}
+                    {error.type === 'network' && <p>Check your internet connection and try again.</p>}
+                </div>
+            )}
         </div>
     );
 }
