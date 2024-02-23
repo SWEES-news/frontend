@@ -1,3 +1,4 @@
-import Users from "./Users"
+import GetAllUsers from "./GetAllUsers";
+import AddUser from "./AddUser";
 
-export default Users;
+export { GetAllUsers, AddUser };

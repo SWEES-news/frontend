@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-function UsersComponent() {
+function GetAllUsers() {
     const [users, setUsers] = useState({});
 
     useEffect(() => {
@@ -25,4 +25,4 @@ function UsersComponent() {
     );
 }
 
-export default UsersComponent;
+export default GetAllUsers;
