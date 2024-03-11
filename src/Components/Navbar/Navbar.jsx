@@ -7,6 +7,7 @@ const PAGES = [
   { label: 'User/GetAll', destination: 'User/GetAll' },
   { label: 'User/Add', destination: 'User/Add' },
   { label: 'Submit Article', destination: '/submitarticle' },
+  { label: 'Get Articles', destination: '/getallarticles' },
 ]
 
 const mapper = (page) => <li><Link to={page.destination}>{page.label}</Link></li>;
