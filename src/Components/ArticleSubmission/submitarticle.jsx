@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import './ArticleSubmission.css'; // Import the CSS file
+import { BACKEND_URL } from '../../constants';
+
+const ENDPOINT = `${BACKEND_URL}/articles/submit`;
 
 function ArticleSubmissionComponent() {
     const [articleLink, setArticleLink] = useState('');
@@ -10,7 +13,7 @@ function ArticleSubmissionComponent() {
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        fetch('/articles/submit', {
+        fetch(ENDPOINT, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

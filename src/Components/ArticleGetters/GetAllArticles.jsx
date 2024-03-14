@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import './ArticlesList.css'; // Import the CSS file
+import { BACKEND_URL } from '../../constants';
+
+const ENDPOINT = `${BACKEND_URL}/articles/all`;
 
 function ArticlesListComponent() {
     const [articles, setArticles] = useState([]);
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        fetch('/articles/all')
+        fetch(ENDPOINT)
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok.');

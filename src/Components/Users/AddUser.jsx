@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './../ArticleSubmission/ArticleSubmission.css';
+import { BACKEND_URL } from '../../constants';
+
+const ENDPOINT = `${BACKEND_URL}/users`;
 
 const AddUser = () => {
     const [name, setName] = useState('');
@@ -18,7 +21,7 @@ const AddUser = () => {
         };
 
         try {
-            const response = await axios.post('/user', userData);
+            const response = await axios.post(ENDPOINT, userData);
             console.log('Response as a dictionary:', JSON.stringify(response.data, null, 2)); // Print the response as a JSON string
             const userId = response.data.UserID;
             console.log("User added successfully!", userId);

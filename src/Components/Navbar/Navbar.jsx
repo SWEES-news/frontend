@@ -1,5 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { BACKEND_URL } from '../../constants';
+
+const ENDPOINT = `${BACKEND_URL}`
 
 const PAGES = [
   { label: 'Home', destination: '/' },

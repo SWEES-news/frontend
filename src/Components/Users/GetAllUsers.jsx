@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import { BACKEND_URL } from '../../constants';
+
+const ENDPOINT = `${BACKEND_URL}/user`;
 
 function GetAllUsers() {
     const [users, setUsers] = useState({});
 
     useEffect(() => {
-        fetch('/user')
+        fetch(ENDPOINT)
             .then(response => response.json())
             .then(data => setUsers(data.Data)) // Extracting Data from the response
             .catch(error => console.error('Error fetching data:', error));
