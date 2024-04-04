@@ -24,11 +24,11 @@ function App() {
       <Navbar />
       <Routes>
         <Route path='' element={<h1>Home</h1>} />
-        <Route path="user/register" element={<RegisterUser />} /> 
-        <Route path="user/login" element={<LoginUser />} />
-        <Route path="user/logout" element={<LogoutUser />} />
-        <Route path="games" element={<Games />} />
-        <Route path="User/GetAll" element={<GetAllUsers />} />
+        <Route path="/users/register" element={<RegisterUser />} /> 
+        <Route path="/users/login" element={<LoginUser />} />
+        <Route path="/users/logout" element={<LogoutUser />} />
+        <Route path="/users/getall" element={<GetAllUsers />} />
+        <Route path="/games" element={<Games />} />
         <Route path="/submitarticle" element={<ArticleSubmissionComponent />} />
         <Route path="/getallarticles" element={<ArticlesListComponent />} />
         <Route path="/submissions" element={<SubmissionsComponent />} />

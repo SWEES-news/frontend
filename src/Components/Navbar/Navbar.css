@@ -30,18 +30,6 @@
     color: #2377ff; 
   }
   
-  .navbar-user {
-    cursor: pointer;
-    padding: 5px 10px;
-    border-radius: 5px;
-    transition: background-color 0.3s, color 0.3s;
-  }
-  
-  .navbar-user:hover {
-    background-color: #004ad4;
-    color: white;
-  }
-  
   .navbar-title {
     font-size: 24px;
     font-weight: bold;

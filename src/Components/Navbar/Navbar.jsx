@@ -8,14 +8,11 @@ import { BACKEND_URL } from '../../constants';
 const USER_STATUS_ENDPOINT = `${BACKEND_URL}/user/status`;
 
 const PAGES = [
-  { label: 'Home', destination: '/' },
-  { label: 'Register', destination: '/user/register' },
-  { label: 'Login', destination: '/user/login' },
-  { label: 'Logout', destination: '/user/logout' },
-  { label: 'User/GetAll', destination: '/User/GetAll' },
+  // { label: 'Home', destination: '/' },
+  { label: 'Home', destination: '/getallarticles' },
   { label: 'Submit Article', destination: '/submitarticle' },
-  { label: 'Get Articles', destination: '/getallarticles' },
   { label: 'Submissions', destination: '/submissions' },
+  { label: 'DEBUG' },
 ];
 
 function Navbar() {
@@ -64,7 +61,7 @@ function Navbar() {
     if (user) {
       navigate('/'); 
     } else {
-      navigate('/user/register');
+      navigate('/user/login');
     }
   };
 
@@ -83,31 +80,37 @@ function Navbar() {
           <li key={page.label} className="navbar-item"
               onMouseEnter={() => handleMouseEnter(page.label)}
               onMouseLeave={() => handleMouseLeave(page.label)}>
-            {page.label === 'User/GetAll' ? (
-              <span className="navbar-link">{page.label}</span>
-            ) : (
-              <Link to={page.destination} className="navbar-link">{page.label}</Link>
-            )}
-            {page.label === 'User/GetAll' && (
+            {(<Link to={page.destination} className="navbar-link">{page.label}</Link>)}
+            {page.label === 'DEBUG' && (
               <div className={`dropdown-content ${dropdownVisible[page.label] ? "show" : ""}`}
                    ref={dropdownRefs.current[page.label]}>
-                <Link to="/some-path">Option 1</Link>
-                <Link to="/another-path">Option 2</Link>
+                <Link to="/users/getall">All Users</Link>
+                <Link to="/users/deteteall">Delete Users</Link>
+                <Link to="/articles/deleteall">Delete Articles</Link>
+                <Link to="/users/status">User Status</Link>
               </div>
             )}
           </li>
         ))}
       </ul>
-      <div className="navbar-user" onClick={() => toggleDropdown('user')}>
-        {user ? user : 'Register'}
+      <li className="navbar-item"
+           onMouseEnter={() => handleMouseEnter('user')}
+           onMouseLeave={() => handleMouseLeave('user')}>
+        <span className="navbar-link">{user ? "Welcome, " + user : 'Register/Login'}</span>
         {user && (
-          <div className={`dropdown-content ${dropdownVisible['user'] ? "show" : ""}`}
-               ref={dropdownRefs.current['user']}>
-            <Link to="/account">Account</Link>
-            <Link to="/user/logout">Logout</Link>
+          <div className={`dropdown-content ${dropdownVisible['user'] ? "show" : ""}`}>
+            <Link to="/account" >Account</Link>
+            <Link to="/users/logout" >Logout</Link>
           </div>
         )}
-      </div>
+        {!user && (
+          <div className={`dropdown-content ${dropdownVisible['user'] ? "show" : ""}`}>
+            <Link to="/users/register" >Register</Link>
+            <Link to="/users/login" >Login</Link>
+          </div>
+        )}
+      </li>
+      
     </nav>
   );
 }

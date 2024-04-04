@@ -18,6 +18,7 @@ const LogoutUser = () => {
 
             setLogoutResponse({ message: 'Logout successful' });
             setUser(null);
+            localStorage.removeItem('user');
             setTimeout(() => {
                 navigate('/user/login');
             }, 1000);  // 1000 milliseconds = 1 second
