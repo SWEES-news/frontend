@@ -1,3 +1,4 @@
 import ArticlesListComponent from "./GetAllArticles"
+import SubmissionsComponent from "./submissions"
 
-export default ArticlesListComponent
+export {ArticlesListComponent, SubmissionsComponent};

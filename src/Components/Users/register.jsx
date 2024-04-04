@@ -3,9 +3,9 @@ import axios from 'axios';
 import './../ArticleSubmission/ArticleSubmission.css';
 import { BACKEND_URL } from '../../constants';
 
-const ENDPOINT = `${BACKEND_URL}/users`;
+const ENDPOINT = `${BACKEND_URL}/user/register`;
 
-const AddUser = () => {
+const RegisterUser = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -31,7 +31,17 @@ const AddUser = () => {
             setPassword('');
         } catch (error) {
             console.error('Error adding user:', error);
-            setSubmissionResponse({ message: "Error adding user.", userId: "" });
+            if (error.response) {
+                // Handle errors sent by the server
+                const errorMessage = error.response.data.Data || 'Error adding user.';
+                setSubmissionResponse({ message: errorMessage, userId: "" });
+            } else if (error.request) {
+                // Handle errors where the request was made but no response was received
+                setSubmissionResponse({ message: "No response from server.", userId: "" });
+            } else {
+                // Handle other errors
+                setSubmissionResponse({ message: "Error adding user.", userId: "" });
+            }
         }
     };
 
@@ -77,4 +87,4 @@ const AddUser = () => {
     );
 };
 
-export default AddUser;
+export default RegisterUser;
