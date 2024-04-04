@@ -25,9 +25,9 @@ const LoginUser = () => {
 
             const userId = response.data.UserID;
             setLoginResponse({ message: 'Login successful', userId });
-            setUser({ name: username }); 
+            setUser(username); 
             setTimeout(() => {
-                navigate('/home');
+                navigate('/');
             }, 1000);  // 1000 milliseconds = 1 second
         } catch (error) {
             let errorMessage = 'Error logging in.';

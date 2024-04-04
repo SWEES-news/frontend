@@ -6,7 +6,7 @@
 
 html {
   --poppy: hsla(356, 74%, 52%, 1);
-  --cambridge-blue: hsla(132, 27%, 63%, 1);
+  --cambridge-blue: rgb(92, 122, 255);
   --lemon-chiffon: hsla(58, 74%, 85%, 1);
   --buff: hsla(27, 64%, 65%, 1);
   --bistre: hsla(10, 31%, 19%, 1);
@@ -94,73 +94,7 @@ form button[type=button]:hover {
   border-color: var(--accent-color);
 }
 
-nav {
-  margin: 0;
-  padding-top: 0.5rem;
-  background-color: var(--accent-color);
-}
-
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 2rem;
-  padding: 0;
-}
-
-nav a {
+form button[type=submit] {
+  background: var(--accent-color);
   color: var(--background-color);
-  display: block;
-  --padding: 1rem;
-  padding: var(--padding);
-  text-decoration: none;
-  font-weight: bold;
-  --border-radius: 15px;
-  border-radius: 5px 5px 0 0;
-  position: relative;
-}
-nav a:hover::before,
-nav a:focus::before {
-  content: '';
-  position: absolute;
-  width: var(--border-radius);
-  height: var(--border-radius);
-  border-radius: 0 0 100vw 0;
-  box-shadow: 5px 5px 0 5px var(--background-color);
-  background-color: var(--accent-color);
-  bottom: 0;
-  left: calc(var(--padding) * -1 + 1px);
-}
-nav a:hover::after,
-nav a:focus::after {
-  content: '';
-  position: absolute;
-  width: var(--border-radius);
-  height: var(--border-radius);
-  border-radius: 0 0 0 100vw;
-  box-shadow: -5px 5px 0 5px var(--background-color);
-  background-color: var(--accent-color);
-  bottom: 0;
-  right: calc(var(--padding) * -1 + 1px);
-}
-
-nav a:hover,
-nav a:focus {
-  background-color: var(--background-color);
-  color: var(--accent-color);
-  outline: none;
-}
-
-.game-container {
-  border: 2px solid var(--accent-color);
-  margin: 1rem 0;
-  padding: 2rem;
-  display: grid;
-  grid-template-columns: 1fr 150px;
-  border-radius: 5px;
-}
-
-.game-container p,
-.game-container h2 {
-  margin: 0;
-  font-size: 1.5rem;
 }
