@@ -10,8 +10,7 @@ function HomePage() {
 
             sections.forEach(section => {
                 const sectionTop = section.getBoundingClientRect().top;
-                const triggerPoint = 150; 
-                const isVisible = sectionTop < window.innerHeight - triggerPoint;
+                const isVisible = sectionTop < window.innerHeight - 100;
 
                 if (isVisible) {
                     section.classList.add('visible-section');
@@ -20,7 +19,6 @@ function HomePage() {
         };
 
         window.addEventListener('scroll', handleScroll);
-
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
@@ -33,11 +31,12 @@ function HomePage() {
                 <p>Exposing Latent Perspectives in Contemporary News Reporting</p>
             </header>
 
-          <HomePageContextComponent />
-          <section className="section recent-articles hidden-section">
-                    <h2>Latest Insights</h2>
-                    <ArticlesListComponent />
-          </section>
+            <HomePageContextComponent />
+
+            <section className="section recent-articles hidden-section">
+                      <h2>Latest Insights</h2>
+                      <ArticlesListComponent />
+            </section>
 
             <footer className="footer-resources">
                 <h2>Empower Your Understanding</h2>

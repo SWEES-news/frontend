@@ -14,7 +14,7 @@ body, html {
 
 /* Layout */
 .homepage {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
 }
 
@@ -29,7 +29,7 @@ body, html {
     flex-basis: 48%; /* For two sections per row */
     background: #f4f4f4;
     padding: 25px;
-    margin-top: 10px;
+    margin: 10px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     border: 2px solid black;
@@ -74,6 +74,17 @@ p {
     border-radius: 8px;
 }
 
+.homepage-context-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(48%, 1fr));
+    gap: 20px; 
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
 .hidden-section {
     opacity: 0;
     transform: translateY(20px);
@@ -85,19 +96,7 @@ p {
     transform: translateY(0);
 }
 
-.homepage-context-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(48%, 1fr));
-    gap: 20px; /* Adjust spacing between grid items */
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.homepage-context-container .section {
-    opacity: 0; /* Initial state */
+.homepage-context-container .section:nth-child(-n+6) {
     animation: fadeIn 0.6s ease forwards;
 }
 
