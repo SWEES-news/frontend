@@ -7,11 +7,11 @@ import {
 
 import './App.css';
 import Navbar from './Components/Navbar';
-import Games from './Components/Games';
 import { GetAllUsers, RegisterUser, LoginUser, LogoutUser} from './Components/Users';
 import ArticleSubmissionComponent from './Components/ArticleSubmission'; 
 import {ArticlesListComponent, SubmissionsComponent} from './Components/ArticleGetters';
 import { UserProvider } from './Components/Users';
+import HomePage from './Components/HomePage';
 
 import axios from 'axios';
 
@@ -23,12 +23,12 @@ function App() {
     <BrowserRouter>
       <Navbar />
       <Routes>
-        <Route path='' element={<h1>Home</h1>} />
+        <Route path='' element={ < HomePage />} />
         <Route path="/users/register" element={<RegisterUser />} /> 
         <Route path="/users/login" element={<LoginUser />} />
         <Route path="/users/logout" element={<LogoutUser />} />
         <Route path="/users/getall" element={<GetAllUsers />} />
-        <Route path="/games" element={<Games />} />
+        {/* <Route path="/games" element={<Games />} /> */}
         <Route path="/submitarticle" element={<ArticleSubmissionComponent />} />
         <Route path="/getallarticles" element={<ArticlesListComponent />} />
         <Route path="/submissions" element={<SubmissionsComponent />} />

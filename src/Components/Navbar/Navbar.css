@@ -1,6 +1,6 @@
 /* Navbar.css */
 .navbar {
-    background-color: #333; /* Dark background */
+    background-color: #333; 
     color: white;
     padding: 10px 20px;
     display: flex;
@@ -16,13 +16,22 @@
   }
   
   .navbar-item {
-    margin: 0 15px;
+    margin: 0 5px;
+    padding: 10px;
+    transition: border-bottom 1s ease-out, border-radius 1s ease;
+  }
+  
+  .navbar-item:hover {
+    border-bottom: 1px solid #093aff;
+    border-radius: 5px;
   }
   
   .navbar-link {
     color: white;
     text-decoration: none;
-    font-size: 16px;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: bold;
     transition: color 0.3s;
   }
   
@@ -31,13 +40,18 @@
   }
   
   .navbar-title {
-    font-size: 24px;
+    font-size: 30px;
     font-weight: bold;
-    margin: 0 0 0 15px;
+    margin: 0 0 0 5px;
   }
   
   .navbar-item {
     position: relative; 
+  }
+
+  .navbar-user {
+    border: none !important; 
+    font-weight: bold;
   }
   
   .dropdown-content {

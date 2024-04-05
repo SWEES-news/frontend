@@ -6,10 +6,11 @@ import './Navbar.css';
 import { BACKEND_URL } from '../../constants';
 
 const USER_STATUS_ENDPOINT = `${BACKEND_URL}/user/status`;
+const TITLE = 'SWEES';
 
 const PAGES = [
-  // { label: 'Home', destination: '/' },
-  { label: 'Home', destination: '/getallarticles' },
+  { label: 'Home', destination: '/' },
+  // { label: 'Home', destination: '/getallarticles' },
   { label: 'Submit Article', destination: '/submitarticle' },
   { label: 'Submissions', destination: '/submissions' },
   { label: 'DEBUG' },
@@ -74,7 +75,7 @@ function Navbar() {
 
   return (
     <nav className="navbar">
-      <h1 className="navbar-title">TITLE</h1>
+      <h1 className="navbar-title">{TITLE}</h1>
       <ul className="navbar-menu">
         {PAGES.map((page, index) => (
           <li key={page.label} className="navbar-item"
@@ -93,7 +94,7 @@ function Navbar() {
           </li>
         ))}
       </ul>
-      <li className="navbar-item"
+      <div className="navbar-item navbar-user"
            onMouseEnter={() => handleMouseEnter('user')}
            onMouseLeave={() => handleMouseLeave('user')}>
         <span className="navbar-link">{user ? "Welcome, " + user : 'Register/Login'}</span>
@@ -109,7 +110,7 @@ function Navbar() {
             <Link to="/users/login" >Login</Link>
           </div>
         )}
-      </li>
+      </div>
       
     </nav>
   );
