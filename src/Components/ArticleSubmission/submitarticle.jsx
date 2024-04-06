@@ -1,43 +1,34 @@
 import React, { useState } from 'react';
-import './ArticleSubmission.css'; // Import the CSS file
+import './ArticleSubmission.css';
 import { BACKEND_URL } from '../../constants';
-import axios from 'axios'; // Import axios
+import axios from 'axios';
 
 const ENDPOINT = `${BACKEND_URL}/articles/submit`;
 
 function ArticleSubmissionComponent() {
     const [articleLink, setArticleLink] = useState('');
-    const [articleBody, setarticleBody] = useState('');
-    const [articleTitle, setarticleTitle] = useState('');
+    const [articleBody, setArticleBody] = useState('');
+    const [articleTitle, setArticleTitle] = useState('');
+    const [isPrivate, setIsPrivate] = useState(false);
     const [submissionResponse, setSubmissionResponse] = useState(null);
     const [error, setError] = useState(null);
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-
         try {
             const response = await axios.post(ENDPOINT, {
                 article_link: articleLink,
                 article_body: articleBody,
-                article_title: articleTitle
+                article_title: articleTitle,
+                private: isPrivate
             });
-            console.log('Response:', response);
             setSubmissionResponse(response.data);
             setError(null);
         } catch (err) {
-            console.error('Error submitting article:', err);
-            if (err.response) {
-                // The request was made and the server responded with a status code
-                // that falls out of the range of 2xx
-                console.log('Parsed Data:', err.response.data);
-                setError({ message: err.response.data.Data || 'Network response was not ok', type: 'submission' });
-            } else if (err.request) {
-                // The request was made but no response was received
-                setError({ message: 'No response received', type: 'network' });
-            } else {
-                // Something happened in setting up the request that triggered an Error
-                setError({ message: err.message, type: 'unknown' });
-            }
+            setError({
+                message: err.response ? err.response.data.Data || 'Error fetching articles.' : 'Network Error',
+                type: err.response ? 'server' : 'network'
+            });
         }
     };
 
@@ -63,7 +54,7 @@ function ArticleSubmissionComponent() {
                         <input 
                             type="text" 
                             value={articleBody}
-                            onChange={(e) => setarticleBody(e.target.value)}
+                            onChange={(e) => setArticleBody(e.target.value)}
                             required 
                             className="article-submission-input"
                         />
@@ -75,9 +66,19 @@ function ArticleSubmissionComponent() {
                         <input 
                             type="text" 
                             value={articleTitle}
-                            onChange={(e) => setarticleTitle(e.target.value)}
-                            required 
+                            onChange={(e) => setArticleTitle(e.target.value)} 
                             className="article-submission-input"
+                        />
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        Private Article:
+                        <input 
+                            type="checkbox" 
+                            checked={isPrivate}
+                            onChange={(e) => setIsPrivate(e.target.checked)}
+                            className="article-submission-checkbox"
                         />
                     </label>
                 </div>
@@ -93,9 +94,6 @@ function ArticleSubmissionComponent() {
                 <div className="error-message">
                     <p>Error submitting article: {error.message}</p>
                     <p>Please check your submission and try again.</p>
-                    {error.type === 'validation' && <p>Ensure all required fields are filled correctly.</p>}
-                    {error.type === 'network' && <p>Check your internet connection and try again.</p>}
-                    {error.type === 'submission' && <p>{error.message}</p>}
                 </div>
             )}
         </div>
