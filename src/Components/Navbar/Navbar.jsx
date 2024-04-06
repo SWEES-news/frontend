@@ -10,7 +10,7 @@ const TITLE = 'SWEES';
 
 const PAGES = [
   { label: 'Home', destination: '/' },
-  // { label: 'Home', destination: '/getallarticles' },
+  { label: 'Hot', destination: '/getallarticles' },
   { label: 'Submit Article', destination: '/submitarticle' },
   { label: 'Submissions', destination: '/submissions' },
   { label: 'DEBUG' },
@@ -73,11 +73,25 @@ function Navbar() {
     }));
   };
 
+  const filteredPages = PAGES.filter(page => {
+    // Show the 'Submissions' page only if user is logged in
+    if (page.label === 'Submissions' || page.label === 'Submit Article') {
+      return user != null;
+    }
+
+    // cool idea
+    // if (page.label === 'DEBUG') {
+    //   return user != null && user === 'admin';
+    // }
+
+    return true;
+  });
+
   return (
     <nav className="navbar">
       <h1 className="navbar-title">{TITLE}</h1>
       <ul className="navbar-menu">
-        {PAGES.map((page, index) => (
+        {filteredPages.map((page, index) => (
           <li key={page.label} className="navbar-item"
               onMouseEnter={() => handleMouseEnter(page.label)}
               onMouseLeave={() => handleMouseLeave(page.label)}>

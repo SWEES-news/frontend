@@ -20,7 +20,7 @@ const LogoutUser = () => {
             setUser(null);
             localStorage.removeItem('user');
             setTimeout(() => {
-                navigate('/user/login');
+                navigate('/users/login');
             }, 1000);  // 1000 milliseconds = 1 second
         } catch (error) {
             let errorMessage = 'Error logging out.';
