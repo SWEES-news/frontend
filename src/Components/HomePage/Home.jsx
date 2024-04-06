@@ -10,7 +10,7 @@ function HomePage() {
 
             sections.forEach(section => {
                 const sectionTop = section.getBoundingClientRect().top;
-                const isVisible = sectionTop < window.innerHeight - 100;
+                const isVisible = sectionTop < window.innerHeight - 150;
 
                 if (isVisible) {
                     section.classList.add('visible-section');
