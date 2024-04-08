@@ -3,6 +3,8 @@ import axios from 'axios';
 import { BACKEND_URL } from '../../constants';
 import './styles.css'; // Assuming the styles.css is in the same directory
 
+const ENDPOINT = `${BACKEND_URL}/user/update/email`;
+
 const UpdateEmail = ({ userData }) => {
     const [newEmail, setNewEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -10,19 +12,20 @@ const UpdateEmail = ({ userData }) => {
 
     const handleUpdate = () => {
         const payload = {
-            username: userData.Username,
-            password: password,
-            new_email: newEmail
+            Password: password,
+            Email: newEmail
         };
 
-        axios.put(`${BACKEND_URL}/user/update/email`, payload)
+        axios.put(ENDPOINT, payload)
             .then(response => {
                 console.log(response);
-                setMessage('Email updated successfully.');
+                setMessage(response.data.Data);
+                userData.Email = newEmail;
+
             })
             .catch(error => {
                 console.error('Error updating email:', error);
-                setMessage('Failed to update email.');
+                setMessage('Failed to update email. ' + error.response.data.Data);
             });
     };
 
