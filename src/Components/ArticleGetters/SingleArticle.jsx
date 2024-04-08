@@ -47,9 +47,9 @@ function SingleArticleComponent() {
         <div className="articles-list-container">
             <h2>{article.article_title}</h2>
             <div className="article-item">
+                <p>{article.article_body || 'N/A'}</p>
                 <p>Article Link: {article.article_link || 'N/A'}</p>
-                <p>Article Body: {article.article_body || 'N/A'}</p>
-                <p>Private: {article.private ? 'Yes' : 'No'}</p>
+                {article.private === "True" ? <p><b>PRIVATE ARTICLE</b></p> : ''}
             </div>
         </div>
     );

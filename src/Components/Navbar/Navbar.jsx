@@ -89,7 +89,7 @@ function Navbar() {
 
   return (
     <nav className="navbar">
-      <a href=""><h1  className="navbar-title logo">{TITLE}</h1></a>
+      <a href="/" ><h1  className="navbar-title logo">{TITLE}</h1></a>
       <ul className="navbar-menu">
         {filteredPages.map((page, index) => (
           <li key={page.label} className="navbar-item"

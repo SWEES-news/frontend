@@ -19,8 +19,8 @@
 }
 
 .article-item p {
-    margin: 10px 0; /* Spacing between paragraphs */
-    line-height: 1.5; /* Improve readability */
+    margin: 10px 0; 
+    line-height: 1.5; 
 }
 
 .error-message {
@@ -29,9 +29,9 @@
 }
 
 .article-item-link {
-    text-decoration: none; /* Removes underline from links */
-    color: inherit; /* Inherits text color */
-    display: block; /* Makes the link a block, enabling it to fill the space of the li */
+    text-decoration: none;
+    color: inherit;
+    display: block;
 }
 
 .article-item {
@@ -47,12 +47,12 @@
 }
 
 .article-item:hover {
-    background-color: #e2e2e2; /* Slightly change color on hover to indicate interactivity */
+    background-color: #e2e2e2;
 }
 
 .search-form {
     display: flex;
-    align-items: center; /* Ensures vertical alignment */
+    align-items: center; 
     gap: 10px;
 }
 
@@ -60,7 +60,7 @@
     height: 40px;
     padding: 10px;
     border: 1px solid #ccc;
-    border-radius: 4px; /* Optional: For rounded corners */
+    border-radius: 4px; 
 }
 
 .search-input {
@@ -78,4 +78,10 @@
 
 .search-button:hover {
     background-color: #0056b3;
+}
+
+
+/*  make p not bold */
+p {
+    font-weight: lighter !important;
 }

@@ -55,10 +55,10 @@ function GenericArticlesComponent({ endpoint, title }) {
                 {articles.map(article => (
                     <Link to={`/articles/${article._id}`} className="article-item-link" key={article._id}>
                         <li className="article-item">
-                            <p>Article Title: {article.article_title}</p>
-                            <p>Article Link: {article.article_link || 'N/A'}</p>
-                            <p>Article Preview: {article.article_preview || 'N/A'}</p>
-                            <p>Private: {article.private}</p>
+                            <h3>{article.article_title}</h3>
+                            {/* <p>Article Link: {article.article_link || 'N/A'}</p> */}
+                            <p>{article.article_preview || 'Preview not found.'}</p>
+                            {article.private === "True" ? <p><b>PRIVATE ARTICLE</b></p> : ''}
                         </li>
                     </Link>
                 ))}
