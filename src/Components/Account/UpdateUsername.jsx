@@ -3,6 +3,8 @@ import axios from 'axios';
 import { BACKEND_URL } from '../../constants';
 import './styles.css'; // Import styles
 
+const ENDPOOINT = `${BACKEND_URL}/user/update/username`;
+
 const UpdateUsername = ({ userData }) => {
     const [newUsername, setNewUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -10,19 +12,19 @@ const UpdateUsername = ({ userData }) => {
 
     const handleUpdate = () => {
         const payload = {
-            old_username: userData.Username,
-            new_username: newUsername,
-            password: password
+            Username: newUsername,
+            Password: password
         };
 
-        axios.put(`${BACKEND_URL}/user/update/username`, payload)
+        axios.put(ENDPOOINT, payload)
             .then(response => {
                 console.log(response);
                 setMessage('Username updated successfully.');
+                userData.Username = newUsername;
             })
             .catch(error => {
                 console.error('Error updating username:', error);
-                setMessage('Failed to update username.');
+                setMessage('Failed to update username.' + error.response.data.Data);
             });
     };
 
