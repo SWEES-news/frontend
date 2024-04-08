@@ -14,6 +14,7 @@ import { UserProvider } from './Components/Users';
 import HomePage from './Components/HomePage';
 // import UserStatusComponent from './Components/Debug';
 import {UserStatusComponent, GetAllUsers, WipeArticles, WipeUsers} from './Components/Debug';
+import { UpdateEmail, UpdatePassword, UpdateUsername, AccountPage } from './Components/Account';
 
 
 import axios from 'axios';
@@ -38,6 +39,7 @@ function App() {
         <Route path="/users/status" element={<UserStatusComponent />} /> 
         <Route path="/users/deteteall" element={< WipeUsers />} />
         <Route path="/articles/deleteall" element={< WipeArticles />} />
+        <Route path="/users/account" element={< AccountPage />} />
 
       </Routes>
     </BrowserRouter>

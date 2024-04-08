@@ -28,7 +28,7 @@ const LoginUser = () => {
             setUser(username); 
             setTimeout(() => {
                 navigate('/');
-            }, 1000);  // 1000 milliseconds = 1 second
+            }, 200);  // 1000 milliseconds = 1 second
         } catch (error) {
             let errorMessage = 'Error logging in.';
             if (error.response && error.response.data && error.response.data.Data) {

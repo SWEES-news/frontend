@@ -89,7 +89,7 @@ function Navbar() {
 
   return (
     <nav className="navbar">
-      <h1 className="navbar-title">{TITLE}</h1>
+      <a href=""><h1  className="navbar-title logo">{TITLE}</h1></a>
       <ul className="navbar-menu">
         {filteredPages.map((page, index) => (
           <li key={page.label} className="navbar-item"
@@ -114,7 +114,7 @@ function Navbar() {
         <span className="navbar-link">{user ? "Welcome, " + user : 'Register/Login'}</span>
         {user && (
           <div className={`dropdown-content ${dropdownVisible['user'] ? "show" : ""}`}>
-            <Link to="/account" >Account</Link>
+            <Link to="/users/account" >Account</Link>
             <Link to="/users/logout" >Logout</Link>
           </div>
         )}

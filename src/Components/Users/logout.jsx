@@ -17,11 +17,6 @@ const LogoutUser = () => {
             await axios.get(LOGOUT_ENDPOINT);
 
             setLogoutResponse({ message: 'Logout successful' });
-            setUser(null);
-            localStorage.removeItem('user');
-            setTimeout(() => {
-                navigate('/users/login');
-            }, 1000);  // 1000 milliseconds = 1 second
         } catch (error) {
             let errorMessage = 'Error logging out.';
             if (error.response && error.response.data && error.response.data.Data) {
@@ -29,6 +24,11 @@ const LogoutUser = () => {
             }
             setLogoutResponse({ message: errorMessage });
         }
+        setUser(null);
+        localStorage.removeItem('user');
+        setTimeout(() => {
+            navigate('/users/login');
+        }, 500);  // 1000 milliseconds = 1 second
     };
 
     return (

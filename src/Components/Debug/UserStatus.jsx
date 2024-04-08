@@ -14,12 +14,12 @@ function UserStatusComponent() {
                 if (response.data && response.data.User) {
                     setUserStatus(`User logged in: ${response.data.User}`);
                 } else {
-                    setUserStatus('No user is currently logged in.');
+                    setUserStatus('No user is currently logged in. ' + response.data.Data);
                 }
             })
             .catch(error => {
                 console.error('Error fetching user status:', error);
-                setUserStatus('Unable to fetch user status.');
+                setUserStatus(error.response.data.Data || error.response.data.message || 'Error fetching user status.');
             });
     }, []);
 

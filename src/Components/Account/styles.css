@@ -1,0 +1,55 @@
+.user-container {
+    margin: 20px auto;
+    max-width: 600px;
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    box-sizing: border-box;
+}
+
+.user-detail {
+    margin-bottom: 20px; /* Space between user detail paragraphs */
+    line-height: 1.5; /* Improve readability */
+}
+
+.user-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px; /* Space below the form */
+}
+
+.user-form input, .user-form button {
+    height: 40px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.user-form button {
+    border: none;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.user-form button:hover {
+    background-color: #0056b3;
+}
+
+.error-message {
+    color: red;
+    margin-top: 10px; /* Space above error messages */
+}
+
+.success-message {
+    color: green;
+    margin-top: 10px; /* Space above success messages */
+}
+
+/* Add any other specific styles for user pages as needed */
