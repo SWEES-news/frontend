@@ -80,9 +80,9 @@ function Navbar() {
     }
 
     // cool idea
-    // if (page.label === 'DEBUG') {
-    //   return user != null && user === 'admin';
-    // }
+    if (page.label === 'DEBUG') {
+      return user != null && user === 'admin' || user === 'ethan';
+    }
 
     return true;
   });
