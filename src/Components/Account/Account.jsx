@@ -3,6 +3,7 @@ import axios from 'axios';
 import { BACKEND_URL } from '../../constants';
 import DeleteAccount from './DeleteAccount';
 import UpdateEmail from './UpdateEmail';
+import SurveyForm from './SurveyForm';
 import UpdatePassword from './UpdatePassword';
 import UpdateUsername from './UpdateUsername';
 import './styles.css'; // Import styles
@@ -44,6 +45,7 @@ const AccountPage = () => {
             <UpdateEmail userData={userData} />
             <UpdatePassword userData={userData} />
             <DeleteAccount userData={userData} />
+            <SurveyForm userData={userData} />
         </div>
     );
 }

@@ -33,6 +33,7 @@ const RegisterUser = () => {
             }, 400);
         } catch (error) {
             console.error('Error adding user: ', error);
+            console.log("Endpoint URL:", ENDPOINT);
             if (error.response) {
                 // Handle errors sent by the server
                 const errorMessage = error.response.data.Data || error.response.data.message || 'Error adding user.';

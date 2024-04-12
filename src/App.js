@@ -14,7 +14,7 @@ import { UserProvider } from './Components/Users';
 import HomePage from './Components/HomePage';
 // import UserStatusComponent from './Components/Debug';
 import {UserStatusComponent, GetAllUsers, WipeArticles, WipeUsers} from './Components/Debug';
-import { UpdateEmail, UpdatePassword, UpdateUsername, AccountPage } from './Components/Account';
+import { UpdateEmail, UpdatePassword, UpdateUsername, AccountPage, SurveyForm } from './Components/Account';
 
 
 import axios from 'axios';
