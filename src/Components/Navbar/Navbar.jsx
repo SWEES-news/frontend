@@ -58,20 +58,20 @@ function Navbar() {
     setDropdownVisible(prev => ({ ...prev, [label]: false }));
   };
 
-  const handleUserClick = () => {
-    if (user) {
-      navigate('/'); 
-    } else {
-      navigate('/user/login');
-    }
-  };
+  // const handleUserClick = () => {
+  //   if (user) {
+  //     navigate('/'); 
+  //   } else {
+  //     navigate('/user/login');
+  //   }
+  // };
 
-  const toggleDropdown = (label) => {
-    setDropdownVisible(prev => ({
-      ...prev,
-      [label]: !prev[label]
-    }));
-  };
+  // const toggleDropdown = (label) => {
+  //   setDropdownVisible(prev => ({
+  //     ...prev,
+  //     [label]: !prev[label]
+  //   }));
+  // };
 
   const filteredPages = PAGES.filter(page => {
     // Show the 'Submissions' page only if user is logged in
@@ -81,7 +81,7 @@ function Navbar() {
 
     // cool idea
     if (page.label === 'DEBUG') {
-      return user != null && user === 'admin' || user === 'ethan';
+      return user != null && (user === 'admin' || user === 'ethan');
     }
 
     return true;
