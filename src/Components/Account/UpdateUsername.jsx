@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { BACKEND_URL } from '../../constants';
 import './styles.css'; // Import styles
+import { useUser } from './../Users/UserContext';
 
 const ENDPOOINT = `${BACKEND_URL}/user/update/username`;
 
@@ -9,24 +10,40 @@ const UpdateUsername = ({ userData }) => {
     const [newUsername, setNewUsername] = useState('');
     const [password, setPassword] = useState('');
     const [message, setMessage] = useState('');
+    const { setUser } = useUser();
 
     const handleUpdate = () => {
         const payload = {
             Username: newUsername,
             Password: password
         };
-
+    
         axios.put(ENDPOOINT, payload)
             .then(response => {
                 console.log(response);
                 setMessage('Username updated successfully.');
                 userData.Username = newUsername;
+                setUser(newUsername); 
+    
+                // Here, the username is stringified before storing
+                localStorage.setItem('user', JSON.stringify(newUsername)); 
             })
             .catch(error => {
                 console.error('Error updating username:', error);
-                setMessage('Failed to update username.' + error.response.data.Data);
+    
+                let errorMessage = 'Failed to update username.';
+                if (error.response && error.response.data) {
+                    try {
+                        errorMessage += error.response.data.Data;
+                    } catch (e) {
+                        errorMessage += ' Unexpected server response.';
+                    }
+                }
+                setMessage(errorMessage);
             });
     };
+    
+    
 
     return (
         <div className="user-container">

@@ -8,7 +8,7 @@ const DeleteAccount = () => {
     const [message, setMessage] = useState('');
 
     const handleDelete = () => {
-        axios.delete(`${BACKEND_URL}/user/update/DeleteAccount`, {
+        axios.delete(`${BACKEND_URL}/user/update/delete`, {
             data: { Password: password }  
         })
         .then(response => {
