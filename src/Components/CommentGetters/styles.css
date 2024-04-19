@@ -1,0 +1,57 @@
+/* Container for all comments and the form */
+.article-comments-container {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Individual comment styling */
+.article-comments-container ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.article-comments-container li {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #fff;
+    border-left: 3px solid #007BFF;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* Styling for nested comments */
+.article-comments-container li ul {
+    margin-top: 10px;
+    padding-left: 20px; /* Indent nested comments */
+}
+
+/* Textarea and button styling for comment submission */
+.article-comments-container form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.article-comments-container form button {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.article-comments-container form button:disabled {
+    background-color: #ccc;
+}
+
+/* Error message styling */
+.error {
+    color: #ff0000;
+    margin-top: 10px;
+}

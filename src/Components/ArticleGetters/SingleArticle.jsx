@@ -3,6 +3,7 @@ import axios from 'axios';
 import './ArticlesList.css';
 import { useParams } from 'react-router-dom';
 import { BACKEND_URL } from '../../constants';
+import ArticleCommentsComponent from '../CommentGetters/ArticleComments';
 
 const ENDPOINT = `${BACKEND_URL}/articles`;
 
@@ -51,7 +52,9 @@ function SingleArticleComponent() {
                 <p>Article Link: {article.article_link || 'N/A'}</p>
                 {article.private === "True" ? <p><b>PRIVATE ARTICLE</b></p> : ''}
             </div>
+            <ArticleCommentsComponent />
         </div>
+        
     );
 }
 
