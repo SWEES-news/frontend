@@ -80,9 +80,9 @@ function Navbar() {
     }
 
     // cool idea
-    if (page.label === 'DEBUG') {
-      return user != null && (user === 'admin' || user === 'ethan');
-    }
+    // if (page.label === 'DEBUG') {
+    //   return user != null && (user === 'admin' || user === 'ethan');
+    // }
 
     return true;
   });
@@ -120,7 +120,7 @@ function Navbar() {
         )}
         {!user && (
           <div className={`dropdown-content ${dropdownVisible['user'] ? "show" : ""}`}>
-            <Link to="/users/register" >Register</Link>
+            <Link to="/users/BeginRegistration" >Register</Link>
             <Link to="/users/login" >Login</Link>
           </div>
         )}
