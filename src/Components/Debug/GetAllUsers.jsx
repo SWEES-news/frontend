@@ -12,15 +12,14 @@ function GetAllUsers() {
     useEffect(() => {
         axios.get(ENDPOINT)
             .then(response => {
-                setUsers(response.data.Data); // Extracting Data from the response
-                setError(null); // Resetting error state in case of successful fetch
+                setUsers(response.data.Data);
+                setError(null);
             })
             .catch(error => {
                 console.error('Error fetching data:', error);
-                // Setting error based on response or default message
                 setError(error.response.data.Data || 'Error fetching data');
             });
-    }, []); // This runs once on mount
+    }, []); 
 
     return (
         <div className="container">
