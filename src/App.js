@@ -7,7 +7,7 @@ import {
 
 import './App.css';
 import Navbar from './Components/Navbar';
-import { RegisterUser, LoginUser, LogoutUser} from './Components/Users';
+import { RegisterUser, LoginUser, LogoutUser, StartRegistration, VerifyEmail, RegisterDetails} from './Components/Users';
 import ArticleSubmissionComponent from './Components/ArticleSubmission'; 
 import {ArticlesListComponent, SubmissionsComponent, SingleArticleComponent} from './Components/ArticleGetters'; // add SingleArticleComponent eventually
 import { UserProvider } from './Components/Users';
@@ -28,7 +28,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path='' element={ < HomePage />} />
-        <Route path="/users/register" element={<RegisterUser />} /> 
+        {/* <Route path="/users/register" element={<RegisterUser />} />  */}
         <Route path="/users/login" element={<LoginUser />} />
         <Route path="/users/logout" element={<LogoutUser />} />
         <Route path="/users/getall" element={<GetAllUsers />} />
@@ -40,6 +40,9 @@ function App() {
         <Route path="/users/deteteall" element={< WipeUsers />} />
         <Route path="/articles/deleteall" element={< WipeArticles />} />
         <Route path="/users/account" element={< AccountPage />} />
+        <Route path="/users/BeginRegistration" element={< StartRegistration />} />
+        <Route path="/users/verifyemail" element={< VerifyEmail />} />
+        <Route path="/users/register" element={< RegisterDetails />} />
 
       </Routes>
     </BrowserRouter>
