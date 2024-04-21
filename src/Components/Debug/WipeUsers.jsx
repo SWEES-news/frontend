@@ -3,12 +3,14 @@ import axios from 'axios';
 import './../ArticleSubmission/ArticleSubmission.css'; // Reusing the same CSS as ArticleSubmission
 import { BACKEND_URL } from '../../constants';
 import { useNavigate } from 'react-router-dom';
+import { useUser } from '../Users/UserContext';
 
 const CLEAR_USERS_EP = `${BACKEND_URL}/collections/clear/users`;
 
 const WipeUsers = () => {
     const [clearResponse, setClearResponse] = useState(null);
     const navigate = useNavigate();
+    const { setUser } = useUser();
 
     const handleClear = async () => {
         try {
@@ -16,6 +18,8 @@ const WipeUsers = () => {
 
             if (response.data && response.data.Data) {
                 setClearResponse({ message: response.data.Data });
+                setUser(null);
+                localStorage.removeItem('user');
             } else {
                 setClearResponse({ message: 'Something strange?' });
             }
