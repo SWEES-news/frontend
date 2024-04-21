@@ -20,7 +20,7 @@ function ArticleCommentsComponent() {
 
     const fetchComments = async () => {
         try {
-            const response = await axios.get(`${COMMENTS_ENDPOINT}/${articleId}/comments`);
+            const response = await axios.get(`${COMMENTS_ENDPOINT}/${articleId}`);
             const fetchedComments = response.data.Data || [];
             setComments(formatComments(fetchedComments));
         } catch (err) {
@@ -52,7 +52,7 @@ function ArticleCommentsComponent() {
         if (!commentText.trim()) return;
         setIsSubmitting(true);
         try {
-            const response = await axios.post(`${COMMENTS_ENDPOINT}/${articleId}/comments`, {
+            const response = await axios.post(`${COMMENTS_ENDPOINT}/${articleId}`, {
                 text: commentText,
                 parent_id: parentId
             });
