@@ -28,6 +28,7 @@ const RegisterDetails = () => {
             FirstName: firstName,
             LastName: lastName,
             Password: password,
+            confirm_password: confirmPassword,
         };
 
         try {
