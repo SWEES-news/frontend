@@ -14,7 +14,19 @@ html {
 
   --background-color: var(--off-white);
   --accent-color: var(--navy-blue);
+  --secondary-color: var(--poppy);
+  --tertiary-color: var(--lemon-chiffon);
+  --warning-color: var(--buff);
+  --text-color: var(--bistre);
+
   background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  padding: 20px;
 }
 
 .wrapper {
@@ -39,6 +51,7 @@ button {
   color: var(--accent-color);
   background: var(--background-color);
 }
+
 button:focus,
 button:hover {
   background: var(--accent-color);
@@ -46,29 +59,38 @@ button:hover {
 }
 
 .error-message {
+  color: var(--warning-color);
+  background-color: var(--lemon-chiffon);
   border: 2px solid var(--buff);
   padding: 1em;
   margin: 1em 0;
   border-radius: 5px;
 }
 
-form input {
+form {
+  background: var(--off-white);
+  padding: 20px;
+  border-radius: 8px;
+}
+
+form input,
+form textarea,
+form select {
   display: block;
   margin: .5rem 0 1rem 0;
   padding: 1rem 0.5rem 0.5rem 0.5rem;
   border-radius: 5px;
   border: 2px solid var(--accent-color);
   font-size: 1rem;
+  width: 100%;
 }
 
 form label {
   margin-left: 1rem;
   display: block;
-  height: 0;
-  width: fit-content;
-  position: relative;
-  z-index: 1;
+  font-weight: bold;
 }
+
 form label::before,
 form label::after {
   content: '';
@@ -80,15 +102,16 @@ form label::after {
   border: 2px solid var(--accent-color);
   border-radius: 5px;
   background-color: white;
-  z-index: -1;
 }
 
 form button {
   margin-right: 1rem;
 }
+
 form button[type=button] {
   border-color: var(--background-color);
 }
+
 form button[type=button]:focus,
 form button[type=button]:hover {
   border-color: var(--accent-color);
@@ -97,4 +120,21 @@ form button[type=button]:hover {
 form button[type=submit] {
   background: var(--accent-color);
   color: var(--background-color);
+}
+
+/* Add responsiveness to the form elements */
+@media (max-width: 768px) {
+  .wrapper {
+    padding: 10px;
+  }
+
+  form input,
+  form textarea,
+  form select {
+    padding: 0.8rem 0.4rem;
+  }
+
+  form button {
+    font-size: 1.2rem;
+  }
 }
